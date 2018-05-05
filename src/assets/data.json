@@ -1,0 +1,16 @@
+{
+  "categories": [{
+      "name": "High Price"
+    },
+    {
+      "name": "Low Price"
+    }
+  ],
+  "Departments": [{
+      "title": "Sales"
+    },
+    {
+      "title": "Service"
+    }
+  ]
+}

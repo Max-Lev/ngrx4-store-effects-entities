@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  optionsURL: 'http://localhost:4200/assets/list.json'
 };
