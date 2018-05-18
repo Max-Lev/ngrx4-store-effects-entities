@@ -27,13 +27,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(private http: HttpClient, private store: Store<FilterAppState>,
     private effectsStore: Store<IAppDataEffectAction>, private dataEffects: DataEffects, private pagingStore: Store<PageAppState>) {
 
-    this.store.pipe(select('FilterReducer')).subscribe((state: FilterAppState) => {
-      this.FILTERSTATE = state;
-    });
-    this.effectsStore.pipe(select('DataEffectsReducer')).subscribe((effectsData: IAppDataEffectAction) => {
-      console.log('DataEffectsReducer data: ', effectsData);
-      return effectsData;
-    });
+    // this.store.pipe(select('FilterReducer')).subscribe((state: FilterAppState) => {
+    //   this.FILTERSTATE = state;
+    // });
+    // this.effectsStore.pipe(select('DataEffectsReducer')).subscribe((effectsData: IAppDataEffectAction) => {
+    //   console.log('DataEffectsReducer data: ', effectsData);
+    //   return effectsData;
+    // });
 
   }
 
@@ -41,18 +41,18 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void { };
 
-  getData() {
-    this.effectsStore.dispatch(new EffectDataState(GET_DATA, {}));
-  };
+  // getData() {
+  //   this.effectsStore.dispatch(new EffectDataState(GET_DATA, {}));
+  // };
 
-  filter(name: string) {
-    const active = this.FILTERSTATE.paginationList.find(item => item.type === name);
-    this.store.dispatch(new SelectedFilter(name, {
-      pagination: {
-        pageNum: (active === undefined) ? 0 : active.pageNum,
-        pageSize: (active === undefined) ? 3 : active.pageSize,
-      }
-    }));
-  };
+  // filter(name: string) {
+  //   const active = this.FILTERSTATE.paginationList.find(item => item.type === name);
+  //   this.store.dispatch(new SelectedFilter(name, {
+  //     pagination: {
+  //       pageNum: (active === undefined) ? 0 : active.pageNum,
+  //       pageSize: (active === undefined) ? 3 : active.pageSize,
+  //     }
+  //   }));
+  // };
 
 }

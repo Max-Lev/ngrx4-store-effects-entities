@@ -29,7 +29,8 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator (page)="pageEvent($event)" #paginator 
-  [pageSize]="3" [pageSizeOptions]="[3, 5, 7]" [showFirstLastButtons]="true">
+  <mat-paginator (page)="pageEvent($event)" #paginator [pageSize]="3" [pageSizeOptions]="[3, 5, 7]" [showFirstLastButtons]="true">
   </mat-paginator>
 </div>
+
+

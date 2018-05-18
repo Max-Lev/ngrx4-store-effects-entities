@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { DataEffectsReducer } from './store/dataEffectsReducer';
 import { DataEffects } from './store/dataEffects';
+import { NavigationRoutingModule } from './navigation/navigation-routing.module';
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,6 +26,7 @@ import { DataEffects } from './store/dataEffects';
     DataModule,
     MatButtonModule,
     HttpClientModule,
+    NavigationRoutingModule,
     StoreModule.forRoot({
       FilterReducer: FilterReducer,
       DataEffectsReducer: DataEffectsReducer,
