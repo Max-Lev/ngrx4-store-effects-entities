@@ -1,26 +1,21 @@
 var express = require('express');
 var router = express.Router();
-
-var Employee = function (name, last_name) {
-  this.name = name;
-  this.last_name = last_name;
-};
+var organizationDB = require('../../mongodb/mongodb');
 
 router.use(function (req, res, next) {
-  console.log('employees middleware: ');
-  var employee = new Employee('max', 'lev');
-  req.employeeData = employee;
-  next();
+
+  organizationDB.organizationDBConnection().then(function (response) {
+    console.log('response: ', response);
+    req.anxietyQuestioneer = response;
+    next();
+  });
 });
 
+
 router.get('/', function (req, res, next) {
-  console.log(req.employeeData);
-  setTimeout(function () {
-    res.json({
-      name: req.employeeData.name,
-      last_name: req.employeeData.last_name
-    });
-  }, 0);
+  res.json({
+    anxietyQuestioneer: req.anxietyQuestioneer
+  });
 });
 
 module.exports = router;
